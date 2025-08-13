@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://rwjyy6dl2grv"]
+
+[ext_resource type="Texture2D" uid="uid://bygpipm31v7x1" path="res://Material Freeway/wallpaperfreeway.png" id="1_4xp0j"]
+[ext_resource type="PackedScene" uid="uid://brqs8tad42k1l" path="res://player.tscn" id="2_1mq2a"]
+
+[node name="TerrainFreeway" type="Node2D"]
+
+[node name="Wallpaperfreeway" type="Sprite2D" parent="."]
+position = Vector2(640, 359.5)
+scale = Vector2(0.998438, 0.993056)
+texture = ExtResource("1_4xp0j")
+
+[node name="Player" parent="." instance=ExtResource("2_1mq2a")]
+position = Vector2(596, 670)

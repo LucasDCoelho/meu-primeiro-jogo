@@ -1,0 +1,60 @@
+[gd_scene load_steps=11 format=3 uid="uid://brqs8tad42k1l"]
+
+[ext_resource type="Texture2D" uid="uid://dbxs50paw6baq" path="res://Material Freeway/galinha/baixo/sprite_0.png" id="1_2hs0m"]
+[ext_resource type="Script" uid="uid://cdf6d57gbdo17" path="res://player.gd" id="1_dw050"]
+[ext_resource type="Texture2D" uid="uid://ulp4tj52grne" path="res://Material Freeway/galinha/baixo/sprite_1.png" id="2_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://cqb1im2vjd15x" path="res://Material Freeway/galinha/baixo/sprite_2.png" id="3_dw050"]
+[ext_resource type="Texture2D" uid="uid://dn1rq7xmdynqm" path="res://Material Freeway/galinha/cima/sprite_0.png" id="4_b26j0"]
+[ext_resource type="Texture2D" uid="uid://cb1kn4u20q48g" path="res://Material Freeway/galinha/cima/sprite_1.png" id="5_n7ghd"]
+[ext_resource type="Texture2D" uid="uid://cdj1rq540vcyo" path="res://Material Freeway/galinha/cima/sprite_2.png" id="6_nvl01"]
+[ext_resource type="AudioStream" uid="uid://dch2l7o8appam" path="res://Material Freeway/sons/colide.wav" id="8_b26j0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7ghd"]
+radius = 15.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_2hs0m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_1jxqw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dw050")
+}],
+"loop": true,
+"name": &"baixo",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_b26j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_n7ghd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_nvl01")
+}],
+"loop": true,
+"name": &"cima",
+"speed": 8.0
+}]
+
+[node name="Player" type="Area2D"]
+script = ExtResource("1_dw050")
+
+[node name="Colisao" type="CollisionShape2D" parent="."]
+z_index = 1
+shape = SubResource("CircleShape2D_n7ghd")
+debug_color = Color(0.644791, 0, 0.169744, 0.42)
+
+[node name="Animacao" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ivps1")
+animation = &"baixo"
+
+[node name="Audio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_b26j0")
