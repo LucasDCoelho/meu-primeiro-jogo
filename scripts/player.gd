@@ -1,5 +1,6 @@
 extends Area2D
 
+signal pontua
 @export var speed: float = 100;
 var screen_size: Vector2
 var initial_position: Vector2 = Vector2(640,690)
@@ -30,3 +31,12 @@ func _process(delta: float) -> void:
 	
 	position += velocity * delta
 	position.y = clamp(position.y, 0.0, screen_size.y)
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body.name == "LinhaChegada":
+		emit_signal("pontua")
+		position = initial_position
+	else:
+		position = initial_position
+		$Audio.play()

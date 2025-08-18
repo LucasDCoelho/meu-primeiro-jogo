@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://brqs8tad42k1l"]
 
 [ext_resource type="Texture2D" uid="uid://dbxs50paw6baq" path="res://Material Freeway/galinha/baixo/sprite_0.png" id="1_2hs0m"]
-[ext_resource type="Script" uid="uid://cdf6d57gbdo17" path="res://player.gd" id="1_dw050"]
+[ext_resource type="Script" uid="uid://cdf6d57gbdo17" path="res://scripts/player.gd" id="1_dw050"]
 [ext_resource type="Texture2D" uid="uid://ulp4tj52grne" path="res://Material Freeway/galinha/baixo/sprite_1.png" id="2_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://cqb1im2vjd15x" path="res://Material Freeway/galinha/baixo/sprite_2.png" id="3_dw050"]
 [ext_resource type="Texture2D" uid="uid://dn1rq7xmdynqm" path="res://Material Freeway/galinha/cima/sprite_0.png" id="4_b26j0"]
@@ -54,7 +54,9 @@ debug_color = Color(0.644791, 0, 0.169744, 0.42)
 [node name="Animacao" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ivps1")
-animation = &"baixo"
+animation = &"cima"
 
 [node name="Audio" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_b26j0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
