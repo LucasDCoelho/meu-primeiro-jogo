@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=3 uid="uid://crq563kje1g3s"]
+[gd_scene load_steps=18 format=3 uid="uid://crq563kje1g3s"]
 
 [ext_resource type="Texture2D" uid="uid://dt673d6gd0bkj" path="res://Material Freeway/carros/coches (1).png" id="1_4jdfh"]
+[ext_resource type="Script" uid="uid://dfjb5d7hsnmbi" path="res://scripts/carros.gd" id="1_cc5d5"]
 [ext_resource type="Texture2D" uid="uid://d35ae1w0i65m7" path="res://Material Freeway/carros/coches (10).png" id="2_cc5d5"]
 [ext_resource type="Texture2D" uid="uid://vrgmosgj1tot" path="res://Material Freeway/carros/coches (11).png" id="3_pxsbw"]
 [ext_resource type="Texture2D" uid="uid://bqbi5ttef1wtu" path="res://Material Freeway/carros/coches (12).png" id="4_s6fhs"]
@@ -131,11 +132,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq5fp"]
-size = Vector2(50, 30)
+size = Vector2(50, 40)
 
 [node name="Carros" type="RigidBody2D"]
 scale = Vector2(0.2, 0.2)
 gravity_scale = 0.0
+script = ExtResource("1_cc5d5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 rotation = 1.5708
@@ -144,7 +146,7 @@ sprite_frames = SubResource("SpriteFrames_68pda")
 animation = &"carro13"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5.96046e-07)
+position = Vector2(0, 1.78814e-06)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xq5fp")
 
