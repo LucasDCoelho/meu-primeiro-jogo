@@ -1,15 +1,16 @@
 [gd_scene load_steps=9 format=3 uid="uid://rwjyy6dl2grv"]
 
 [ext_resource type="Texture2D" uid="uid://bygpipm31v7x1" path="res://Material Freeway/wallpaperfreeway.png" id="1_4xp0j"]
+[ext_resource type="Script" uid="uid://cdm28sc5iokkl" path="res://scripts/terrain_freeway.gd" id="1_t7f6k"]
 [ext_resource type="PackedScene" uid="uid://brqs8tad42k1l" path="res://cenas/player.tscn" id="2_1mq2a"]
 [ext_resource type="PackedScene" uid="uid://wphqhsdlg2fr" path="res://cenas/linha_chegada.tscn" id="3_1x75l"]
-[ext_resource type="PackedScene" uid="uid://crq563kje1g3s" path="res://cenas/carros.tscn" id="4_od4ic"]
 [ext_resource type="PackedScene" uid="uid://ckaaluqwddhh2" path="res://cenas/hud.tscn" id="5_jk05s"]
 [ext_resource type="AudioStream" uid="uid://bq08xet51v1wy" path="res://Material Freeway/sons/tema.wav" id="6_jsxtb"]
 [ext_resource type="AudioStream" uid="uid://7mcoy2dktjsu" path="res://Material Freeway/sons/ponto.wav" id="7_t7f6k"]
 [ext_resource type="AudioStream" uid="uid://bctl2m4mif878" path="res://Material Freeway/sons/ganhou.wav" id="8_e0ld3"]
 
 [node name="TerrainFreeway" type="Node"]
+script = ExtResource("1_t7f6k")
 
 [node name="Wallpaperfreeway" type="Sprite2D" parent="."]
 position = Vector2(640, 359.5)
@@ -21,9 +22,6 @@ position = Vector2(640, 64)
 
 [node name="Player" parent="." instance=ExtResource("2_1mq2a")]
 position = Vector2(640, 690)
-
-[node name="Carros" parent="." instance=ExtResource("4_od4ic")]
-position = Vector2(334, 393)
 
 [node name="HUD" parent="." instance=ExtResource("5_jk05s")]
 
@@ -43,3 +41,8 @@ stream = ExtResource("7_t7f6k")
 
 [node name="AudioVitoria" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_e0ld3")
+
+[connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
+[connection signal="reinicia" from="HUD" to="." method="_on_hud_reinicia"]
+[connection signal="timeout" from="TimerCarrosLentos" to="." method="_on_timer_carros_lentos_timeout"]
+[connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rapidos_timeout"]
