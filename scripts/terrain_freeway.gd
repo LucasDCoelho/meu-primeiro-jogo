@@ -4,10 +4,13 @@ var cena_carros = preload("res://cenas/carros.tscn");
 var pistas_rapidas_Y = [104, 272, 488];
 var pistas_lentas_Y = [160, 216, 324, 384, 438, 544, 600];
 var score = 0;
+var tempo = 136;
 
 func _ready() -> void:
 	$HUD/Placar.text = str(score);
+	$HUD/Timer.text = str(tempo);
 	$HUD/Mensagem.hide();
+	$HUD/GameOver.hide();
 	$HUD/Button.hide();
 	$AudioTema.play();
 	randomize();
@@ -47,3 +50,17 @@ func _on_player_pontua() -> void:
 
 func _on_hud_reinicia() -> void:
 	get_tree().reload_current_scene();
+
+
+func _on_timer_game_over_timeout():
+	tempo -= 1;
+	$HUD/Timer.text = str(tempo);
+	if tempo == 0:
+		$HUD/GameOver.show();
+		$HUD/Button.show();
+		tempo = 136
+		$HUD/Timer.text = str(tempo);
+		$TimerGameOver.stop();
+	
+	
+	

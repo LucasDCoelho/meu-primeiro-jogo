@@ -12,15 +12,18 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
+	
 	if Input.is_action_pressed("move_right"): 
+		$Animacao.animation = "right"
 		velocity.x += 1
 	if Input.is_action_pressed("move_left"):
+		$Animacao.animation = "left"
 		velocity.x -= 1
 	if Input.is_action_pressed("move_down"):
-		$Animacao.animation = "baixo"
+		$Animacao.animation = "down"
 		velocity.y += 1
 	if Input.is_action_pressed("move_up"): # Também pode usar ui_up
-		$Animacao.animation = "cima"
+		$Animacao.animation = "up"
 		velocity.y -= 1
 		
 	if velocity.length() > 0:
