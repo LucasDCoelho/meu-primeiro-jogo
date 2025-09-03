@@ -2,6 +2,7 @@ extends RigidBody2D
 
 
 func _ready() -> void:
-	var tipos_carros = $AnimatedSprite2D.sprite_frames.get_animation_names();
-	var carro = tipos_carros[randi_range(0, tipos_carros.size() - 1)];
-	$AnimatedSprite2D.animation = carro;
+	var frames = $AnimatedSprite2D.sprite_frames.get_frame_count("orc")
+	var frame_index = randi_range(0, frames - 1)
+	$AnimatedSprite2D.play("orc")
+	$AnimatedSprite2D.frame = frame_index

@@ -1,53 +1,90 @@
-[gd_scene load_steps=9 format=3 uid="uid://rwjyy6dl2grv"]
+[gd_scene load_steps=12 format=3 uid="uid://rwjyy6dl2grv"]
 
-[ext_resource type="Texture2D" uid="uid://bygpipm31v7x1" path="res://Material Freeway/wallpaperfreeway.png" id="1_4xp0j"]
+[ext_resource type="Script" uid="uid://eqpqire3hfr6" path="res://scripts/main.gd" id="1_e0ld3"]
 [ext_resource type="Script" uid="uid://cdm28sc5iokkl" path="res://scripts/terrain_freeway.gd" id="1_t7f6k"]
 [ext_resource type="PackedScene" uid="uid://brqs8tad42k1l" path="res://cenas/player.tscn" id="2_1mq2a"]
+[ext_resource type="Texture2D" uid="uid://fq06u4d618rk" path="res://Material Freeway/background.png" id="2_jsxtb"]
 [ext_resource type="PackedScene" uid="uid://wphqhsdlg2fr" path="res://cenas/linha_chegada.tscn" id="3_1x75l"]
 [ext_resource type="PackedScene" uid="uid://ckaaluqwddhh2" path="res://cenas/hud.tscn" id="5_jk05s"]
 [ext_resource type="AudioStream" uid="uid://bq08xet51v1wy" path="res://Material Freeway/sons/tema.wav" id="6_jsxtb"]
 [ext_resource type="AudioStream" uid="uid://7mcoy2dktjsu" path="res://Material Freeway/sons/ponto.wav" id="7_t7f6k"]
 [ext_resource type="AudioStream" uid="uid://bctl2m4mif878" path="res://Material Freeway/sons/ganhou.wav" id="8_e0ld3"]
+[ext_resource type="Script" uid="uid://cjgkd1j34gioh" path="res://scripts/canvas_layer.gd" id="9_t7f6k"]
 
-[node name="TerrainFreeway" type="Node"]
+[sub_resource type="Theme" id="Theme_e0ld3"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_e0ld3")
+
+[node name="TerrainFreeway" type="Node" parent="."]
 script = ExtResource("1_t7f6k")
 
-[node name="Wallpaperfreeway" type="Sprite2D" parent="."]
-position = Vector2(640, 359.5)
-scale = Vector2(0.998438, 0.993056)
-texture = ExtResource("1_4xp0j")
+[node name="Wallpaperfreeway" type="Sprite2D" parent="TerrainFreeway"]
+position = Vector2(639, 400)
+scale = Vector2(1.24414, 0.777344)
+texture = ExtResource("2_jsxtb")
 
-[node name="LinhaChegada" parent="." instance=ExtResource("3_1x75l")]
+[node name="LinhaChegada" parent="TerrainFreeway" instance=ExtResource("3_1x75l")]
 position = Vector2(640, 64)
 
-[node name="Player" parent="." instance=ExtResource("2_1mq2a")]
+[node name="Player" parent="TerrainFreeway" instance=ExtResource("2_1mq2a")]
 modulate = Color(0.785603, 0.302843, 0.057185, 1)
 position = Vector2(640, 690)
+scale = Vector2(1.2, 1.2)
 
-[node name="HUD" parent="." instance=ExtResource("5_jk05s")]
+[node name="Player2" parent="TerrainFreeway" instance=ExtResource("2_1mq2a")]
+modulate = Color(0.785603, 0.302843, 0.057185, 1)
+position = Vector2(640, 690)
+scale = Vector2(1.2, 1.2)
 
-[node name="TimerCarrosLentos" type="Timer" parent="."]
+[node name="HUD" parent="TerrainFreeway" instance=ExtResource("5_jk05s")]
+
+[node name="TimerCarrosLentos" type="Timer" parent="TerrainFreeway"]
 wait_time = 0.5
 autostart = true
 
-[node name="TimerCarrosRapidos" type="Timer" parent="."]
+[node name="TimerCarrosRapidos" type="Timer" parent="TerrainFreeway"]
 wait_time = 0.3
 autostart = true
 
-[node name="AudioTema" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioTema" type="AudioStreamPlayer2D" parent="TerrainFreeway"]
 stream = ExtResource("6_jsxtb")
 
-[node name="AudioPonto" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioPonto" type="AudioStreamPlayer2D" parent="TerrainFreeway"]
 stream = ExtResource("7_t7f6k")
 
-[node name="AudioVitoria" type="AudioStreamPlayer2D" parent="."]
+[node name="AudioVitoria" type="AudioStreamPlayer2D" parent="TerrainFreeway"]
 stream = ExtResource("8_e0ld3")
 
-[node name="TimerGameOver" type="Timer" parent="."]
+[node name="TimerGameOver" type="Timer" parent="TerrainFreeway"]
 autostart = true
 
-[connection signal="pontua" from="Player" to="." method="_on_player_pontua"]
-[connection signal="reinicia" from="HUD" to="." method="_on_hud_reinicia"]
-[connection signal="timeout" from="TimerCarrosLentos" to="." method="_on_timer_carros_lentos_timeout"]
-[connection signal="timeout" from="TimerCarrosRapidos" to="." method="_on_timer_carros_rapidos_timeout"]
-[connection signal="timeout" from="TimerGameOver" to="." method="_on_timer_game_over_timeout"]
+[node name="Menu" type="CanvasLayer" parent="."]
+script = ExtResource("9_t7f6k")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_e0ld3")
+alignment = 1
+
+[node name="Player_1" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Solo"
+
+[node name="Coop" type="Button" parent="Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Coop"
+
+[connection signal="pontua" from="TerrainFreeway/Player" to="TerrainFreeway" method="_on_player_pontua"]
+[connection signal="pontua" from="TerrainFreeway/Player2" to="TerrainFreeway" method="_on_player_pontua"]
+[connection signal="reinicia" from="TerrainFreeway/HUD" to="TerrainFreeway" method="_on_hud_reinicia"]
+[connection signal="timeout" from="TerrainFreeway/TimerCarrosLentos" to="TerrainFreeway" method="_on_timer_carros_lentos_timeout"]
+[connection signal="timeout" from="TerrainFreeway/TimerCarrosRapidos" to="TerrainFreeway" method="_on_timer_carros_rapidos_timeout"]
+[connection signal="timeout" from="TerrainFreeway/TimerGameOver" to="TerrainFreeway" method="_on_timer_game_over_timeout"]

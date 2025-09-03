@@ -21,7 +21,7 @@ func _on_timer_carros_rapidos_timeout() -> void:
 	add_child(carro);
 	var pista_y = pistas_rapidas_Y[randi_range(0 , pistas_rapidas_Y.size() - 1)]
 	carro.position = Vector2(-10, pista_y)
-	carro.set_linear_velocity(Vector2(randf_range(710.0, 720.0), 0))
+	carro.set_linear_velocity(Vector2(randf_range(510.0, 520.0), 0))
 	carro.set_linear_damp(0.0)
 
 
@@ -29,9 +29,13 @@ func _on_timer_carros_lentos_timeout() -> void:
 	var carro = cena_carros.instantiate();
 	add_child(carro);
 	var pista_y = pistas_lentas_Y[randi_range(0, pistas_lentas_Y.size() - 1)]
-	carro.position = Vector2(-10, pista_y);
-	carro.set_linear_velocity(Vector2(randf_range(450.0, 500.0), 0))
+	var tela_largura = get_viewport().size.x
+	carro.position = Vector2(tela_largura + 10, pista_y)
+	carro.set_linear_velocity(Vector2(randf_range(-400.0, -350.0), 0))
 	carro.set_linear_damp(0.0)
+	var sprite_do_carro = carro.get_node("AnimatedSprite2D") 
+	sprite_do_carro.flip_h = true
+
 
 
 func _on_player_pontua() -> void:

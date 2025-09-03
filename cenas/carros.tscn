@@ -1,138 +1,74 @@
-[gd_scene load_steps=18 format=3 uid="uid://crq563kje1g3s"]
+[gd_scene load_steps=13 format=3 uid="uid://crq563kje1g3s"]
 
-[ext_resource type="Texture2D" uid="uid://dt673d6gd0bkj" path="res://Material Freeway/carros/coches (1).png" id="1_4jdfh"]
 [ext_resource type="Script" uid="uid://dfjb5d7hsnmbi" path="res://scripts/carros.gd" id="1_cc5d5"]
-[ext_resource type="Texture2D" uid="uid://d35ae1w0i65m7" path="res://Material Freeway/carros/coches (10).png" id="2_cc5d5"]
-[ext_resource type="Texture2D" uid="uid://vrgmosgj1tot" path="res://Material Freeway/carros/coches (11).png" id="3_pxsbw"]
-[ext_resource type="Texture2D" uid="uid://bqbi5ttef1wtu" path="res://Material Freeway/carros/coches (12).png" id="4_s6fhs"]
-[ext_resource type="Texture2D" uid="uid://1c8w1x2imf30" path="res://Material Freeway/carros/coches (13).png" id="5_kkxbi"]
-[ext_resource type="Texture2D" uid="uid://c1tw2xpkl7jly" path="res://Material Freeway/carros/coches (14).png" id="6_a7qyf"]
-[ext_resource type="Texture2D" uid="uid://dw7ba35cip2ca" path="res://Material Freeway/carros/coches (2).png" id="7_fnj2t"]
-[ext_resource type="Texture2D" uid="uid://5t4v0ncok35h" path="res://Material Freeway/carros/coches (3).png" id="8_tk7h6"]
-[ext_resource type="Texture2D" uid="uid://dm46j2fx1dcyc" path="res://Material Freeway/carros/coches (4).png" id="9_hm1y0"]
-[ext_resource type="Texture2D" uid="uid://cr31x48ubii6u" path="res://Material Freeway/carros/coches (5).png" id="10_35crm"]
-[ext_resource type="Texture2D" uid="uid://ccsua2on4p7dx" path="res://Material Freeway/carros/coches (6).png" id="11_bobfm"]
-[ext_resource type="Texture2D" uid="uid://css7ujbku7ce5" path="res://Material Freeway/carros/coches (7).png" id="12_lu8g5"]
-[ext_resource type="Texture2D" uid="uid://bb5kgavpi3mon" path="res://Material Freeway/carros/coches (8).png" id="13_ka2dd"]
-[ext_resource type="Texture2D" uid="uid://bh3cvm6fdexxw" path="res://Material Freeway/carros/coches (9).png" id="14_xqy8m"]
+[ext_resource type="Texture2D" uid="uid://cksuv7pgl8b5g" path="res://Tiny RPG Character Asset Pack v1.03b -Free Soldier&Orc/Tiny RPG Character Asset Pack v1.03 -Free Soldier&Orc/Characters(100x100)/Orc/Orc/Orc-Walk.png" id="2_0xyhx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i8yg"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(0, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ql2ce"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(100, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8ny6"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(200, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rvxnr"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(300, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uluj"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(400, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xj284"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(500, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a7xrq"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(600, 0, 100, 100)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wqotx"]
+atlas = ExtResource("2_0xyhx")
+region = Rect2(700, 0, 100, 100)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_68pda"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_4jdfh")
-}],
-"loop": true,
-"name": &"carro1",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_5i8yg")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_cc5d5")
-}],
-"loop": true,
-"name": &"carro10",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_ql2ce")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_pxsbw")
-}],
-"loop": true,
-"name": &"carro11",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_k8ny6")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("4_s6fhs")
-}],
-"loop": true,
-"name": &"carro12",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_rvxnr")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("5_kkxbi")
-}],
-"loop": true,
-"name": &"carro13",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_6uluj")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_a7qyf")
-}],
-"loop": true,
-"name": &"carro14",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_xj284")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("7_fnj2t")
-}],
-"loop": true,
-"name": &"carro2",
-"speed": 5.0
+"texture": SubResource("AtlasTexture_a7xrq")
 }, {
-"frames": [{
 "duration": 1.0,
-"texture": ExtResource("8_tk7h6")
+"texture": SubResource("AtlasTexture_wqotx")
 }],
 "loop": true,
-"name": &"carro3",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("9_hm1y0")
-}],
-"loop": true,
-"name": &"carro4",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("10_35crm")
-}],
-"loop": true,
-"name": &"carro5",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("11_bobfm")
-}],
-"loop": true,
-"name": &"carro6",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("12_lu8g5")
-}],
-"loop": true,
-"name": &"carro7",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("13_ka2dd")
-}],
-"loop": true,
-"name": &"carro8",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("14_xqy8m")
-}],
-"loop": true,
-"name": &"carro9",
-"speed": 5.0
+"name": &"orc",
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xq5fp"]
-size = Vector2(50, 40)
+size = Vector2(45, 30)
 
 [node name="Carros" type="RigidBody2D"]
 scale = Vector2(0.2, 0.2)
@@ -140,15 +76,16 @@ gravity_scale = 0.0
 script = ExtResource("1_cc5d5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(0.2, 0.2)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_68pda")
-animation = &"carro13"
+animation = &"orc"
+frame_progress = 0.196998
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1.78814e-06)
+position = Vector2(7.49999, 2.98023e-07)
 scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_xq5fp")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
-scale = Vector2(2.5, 1.5)
+position = Vector2(7.5, 0)
+scale = Vector2(2.25, 1.5)
